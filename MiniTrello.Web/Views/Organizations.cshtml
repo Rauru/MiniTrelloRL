@@ -1,0 +1,19 @@
+﻿@helper HelperName(string name)
+{
+    // Su aplicación auxiliar puede contener código o marcado, por ej.
+    // var msg = "Hola " + name;
+    // <p>@msg</p>
+    // Para obtener más información, visite http://go.microsoft.com/fwlink/?LinkID=204658
+}
+<div class="container" ng-repeat="organization in organizations">
+    <div class="row">
+        <h2>{{organization.Title}}</h2>
+        <ul class="ds-btn nav navbar-nav navbar-left" ng-repeat="board in organization.boards">
+            <li style="padding-left: 10px;">
+                <a class="btn btn-lg btn-success " href="http://dotstrap.com/">
+                    <i class="glyphicon glyphicon-dashboard pull-left"></i><span>{{board.Title}}<br><small>{{board.Administrator}}</small></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
