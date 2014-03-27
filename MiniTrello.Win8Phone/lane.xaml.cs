@@ -23,13 +23,13 @@ namespace MiniTrello.Win8Phone
             request.RequestFormat = DataFormat.Json;
 
             //el model es el error
-            var asyncHandler = client.ExecuteAsync<ReturnLinesModel>(request, r =>
+            var asyncHandler = client.ExecuteAsync<ReturnLanesModel>(request, r =>
             {
                 if (r.ResponseStatus == ResponseStatus.Completed)
                 {
                     if (r.Data != null)
                     {
-                        App.ListLanes = (IList<Lines>)r.Data.Lines;
+                        App.ListLanes = (IList<Lanes>)r.Data.Lanes;
                         Dibujar();
                     }
                 }

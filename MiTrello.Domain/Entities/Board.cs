@@ -5,19 +5,19 @@ namespace MiniTrello.Domain.Entities
     public class Board : IEntity
     {
         private readonly IList<Account> _members = new List<Account>();
-        private readonly IList<Lines> _lines =new List<Lines>(); 
+        private readonly IList<Lanes> _lanes =new List<Lanes>(); 
         public virtual Account Administrator { get; set; }
         public virtual string Title { get; set; }
         public virtual long Id { get; set; }
         public virtual bool IsArchived { get; set; }
         public virtual IEnumerable<Account> Members{ get { return _members; }}
-        public virtual IEnumerable<Lines> Lines { get { return _lines; }}
+        public virtual IEnumerable<Lanes> Lanes { get { return _lanes; }}
 
-        public virtual void AddLine(Lines line)
+        public virtual void AddLane(Lanes lane)
         {
-            if (!_lines.Contains(line))
+            if (!_lanes.Contains(lane))
             {
-                _lines.Add(line);
+                _lanes.Add(lane);
             }
         }
 
@@ -34,23 +34,23 @@ namespace MiniTrello.Domain.Entities
             Title = title;
         }
 
-        public virtual Lines GetLineById(long ID)
+        public virtual Lanes GetLaneById(long ID)
         {
-            foreach (var line in _lines)
+            foreach (var lane in _lanes)
             {
-                if (line.Id == ID)
-                    return line;
+                if (lane.Id == ID)
+                    return lane;
 
             }
             return null;
         }
 
-        public virtual Lines GetLineByTitle(string title)
+        public virtual Lanes GetLaneByTitle(string title)
         {
-            foreach (var line in _lines)
+            foreach (var lane in _lanes)
             {
-                if (line.Title.Equals(title))
-                    return line;
+                if (lane.Title.Equals(title))
+                    return lane;
             }
             return null;
         }

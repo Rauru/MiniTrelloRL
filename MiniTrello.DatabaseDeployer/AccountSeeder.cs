@@ -19,8 +19,6 @@ namespace MiniTrello.DatabaseDeployer
         public void Seed()
         {
             IList<Account> accountList = Builder<Account>.CreateListOfSize(10).Build();
-           // accountList.ElementAt(0).Email ="siwady0908@gmail.com";
-            //accountList.ElementAt(0).Password = "tL7nS3PhT2UABFJxFZhHBw==";
 
             accountList.ElementAt(0).Email = "raul_lopez_tu@hotmail.com";
             accountList.ElementAt(0).Password = "qwertyui";

@@ -22,7 +22,7 @@ namespace MiniTrello.Win8Phone
         public static object Token { get; set; }
         public static IList<Organization> ListOrganizations { get; set; }
         public static IList<Board> ListBoards { get; set; }
-        public static IList<Lines> ListLanes { get; set; }
+        public static IList<Lanes> ListLanes { get; set; }
         public static IList<Cards> ListCards { get; set; }
         public static string OrganizationId { get; set; }
         public static string BoardId { get; set; }

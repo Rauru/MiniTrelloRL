@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.Http;
-using System.Web.WebPages;
 using AttributeRouting.Web.Http;
 using AutoMapper;
 using MiniTrello.Api.Models;
@@ -25,9 +21,9 @@ namespace MiniTrello.Api.Controllers
         readonly IReadOnlyRepository _readOnlyRepository;
         readonly IWriteOnlyRepository _writeOnlyRepository;
         readonly IMappingEngine _mappingEngine;
-        static readonly string PasswordHash = "P@@Sw0rd";
-        static readonly string SaltKey = "S@LT&KEY";
-        static readonly string VIKey = "@1B2c3D4e5F6g7H8";
+        static readonly string PasswordHash = "hsahdrowssap";
+        static readonly string SaltKey = "yektlas";
+        static readonly string VIKey = "1q2w3e4r5t6y7u8i";
 
         public AccountController(IReadOnlyRepository readOnlyRepository, IWriteOnlyRepository writeOnlyRepository,
             IMappingEngine mappingEngine)
@@ -114,18 +110,16 @@ namespace MiniTrello.Api.Controllers
                 var tokenCreated = _writeOnlyRepository.Update(account);
                 RestClient client = new RestClient();
                 client.BaseUrl = "https://api.mailgun.net/v2";
-                client.Authenticator =
-                        new HttpBasicAuthenticator("api",
-                                                   "key-3v0eblygcsga9qlj7tnn34w0vk14q-k3");
+                client.Authenticator = new HttpBasicAuthenticator("api", "key-806lkm3wtz3ehuo1nx9ggv3fbbc4n5q3");
                 RestRequest request = new RestRequest();
                 request.AddParameter("domain",
-                                     "app6870.mailgun.org", ParameterType.UrlSegment);
+                                     "app18703.mailgun.org", ParameterType.UrlSegment);
                 request.Resource = "{domain}/messages";
                 request.AddParameter("from", "MiniTrello <me@MiniTrello.mailgun.org>");
                 request.AddParameter("to", account.Email);
                 request.AddParameter("to", account.Email);
                 request.AddParameter("subject", "ResetPassword");
-                request.AddParameter("text", "Utilice este codigo como contraseña para poder ingresar y CAMBIELA " + account.Password + "!");
+                request.AddParameter("text", "Su nueva contraseña es " + account.Password + "!");
                 request.Method = Method.POST;
                 client.Execute(request);
                 return remodel.ConfigureModel("Success","Se le envio un mensaje a su correo",remodel) ;

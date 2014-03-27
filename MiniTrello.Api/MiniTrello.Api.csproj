@@ -192,7 +192,7 @@
     <Compile Include="Controllers\BoardController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LineController.cs" />
+    <Compile Include="Controllers\LaneController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,7 +209,7 @@
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\ChangeBoardsTitleModel.cs" />
     <Compile Include="Models\CreateBoardsModel.cs" />
-    <Compile Include="Models\LineModel.cs" />
+    <Compile Include="Models\LaneModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\MoveCardModel.cs" />
     <Compile Include="Models\OrganizationArchiveModel.cs" />
@@ -218,7 +218,7 @@
     <Compile Include="Models\ReturnActivitiesModel.cs" />
     <Compile Include="Models\ReturnBoardsModel.cs" />
     <Compile Include="Models\ReturnCardsModel.cs" />
-    <Compile Include="Models\ReturnLinesModel.cs" />
+    <Compile Include="Models\ReturnLanesModel.cs" />
     <Compile Include="Models\ReturnMembersModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\ReturnOrganizationModel.cs" />

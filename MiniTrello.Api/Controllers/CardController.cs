@@ -36,7 +36,7 @@ namespace MiniTrello.Api.Controllers
             {
                 if (account.VerifyToken(account))
                 {
-                    Lines line = _readOnlyRepository.GetById<Lines>(idLine);
+                    Lanes line = _readOnlyRepository.GetById<Lanes>(idLine);
                     Cards card= _mappingEngine.Map<CardModel, Cards>(model);
                     Cards cardCreated = _writeOnlyRepository.Create(card);
                     if (cardCreated != null)
@@ -93,7 +93,7 @@ namespace MiniTrello.Api.Controllers
                     Cards card1 =new Cards();
                     card1.Text=card.Text;
                     card1.Description = card.Description;
-                    var line = _readOnlyRepository.GetById<Lines>(model.IdLineTo);
+                    var line = _readOnlyRepository.GetById<Lanes>(model.IdLineTo);
 
                     line.AddCard(card1);
                     var archivedCard = _writeOnlyRepository.Archive(card);
@@ -119,10 +119,10 @@ namespace MiniTrello.Api.Controllers
             {
                 if (account.VerifyToken(account))
                 {
-                    var line = _readOnlyRepository.GetById<Lines>(lineId);
+                    var line = _readOnlyRepository.GetById<Lanes>(lineId);
                     if (line != null)
                     {
-                        ReturnCardsModel cardsModel = _mappingEngine.Map<Lines, ReturnCardsModel>(line);
+                        ReturnCardsModel cardsModel = _mappingEngine.Map<Lanes, ReturnCardsModel>(line);
                         var cards = new ReturnCardsModel();
                         cards.Cards = new List<Cards>();
                         foreach (var or in cardsModel.Cards)
